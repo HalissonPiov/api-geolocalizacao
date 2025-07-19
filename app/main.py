@@ -10,7 +10,7 @@ create_db()
 def adicionar_usuario(nome: str, email: str):
     return criar_usuario(nome, email)
 
-@app.delete("/RemoverUsuario/")
+@app.delete("/RemoverUsuario/") # Utilizar ID
 def deletar_usuario(email: str):
     if remover_usuario(email):
         return {"msg": "Usuário removido"}
