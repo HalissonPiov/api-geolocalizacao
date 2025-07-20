@@ -3,10 +3,10 @@ from typing import Optional, List
 from uuid import uuid4, UUID
 
 class Usuario(SQLModel, table=True):
-    id: UUID = Field(default_factory=uuid4, primary_key=True)
+    id: UUID = Field(default_factory=uuid4, primary_key=True) #
     nome: str
     email: str = Field(index=True, unique=True)
-    pontos: List["PontoGeografico"] = Relationship(back_populates="usuario")
+    pontos: List["PontoGeografico"] = Relationship(back_populates="usuario") #
 
 class PontoGeografico(SQLModel, table=True):
     id: UUID = Field(default_factory=uuid4, primary_key=True)
