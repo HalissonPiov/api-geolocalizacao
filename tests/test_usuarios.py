@@ -5,6 +5,7 @@ from app.database import SQLModel, engine
 
 client = TestClient(app)
 
+
 @pytest.fixture(autouse=True)
 def setup_and_teardown():
     # Limpa e recria as tabelas do banco de dados antes de cada teste
@@ -12,7 +13,6 @@ def setup_and_teardown():
     SQLModel.metadata.create_all(bind=engine)
     yield
     SQLModel.metadata.drop_all(bind=engine)
-
 
 def test_criar_usuario():
     response = client.post("/AdicionarUsuario/?email=usuario_unico@example.com&nome=Usuário Teste")
