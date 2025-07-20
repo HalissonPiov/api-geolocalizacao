@@ -31,3 +31,23 @@ def test_remover_usuario():
     assert response.status_code == 200
     assert data["msg"] == "Usuário removido"
 
+def test_listar_usuario():
+    # Adiciona usuário de teste
+    client.post("/AdicionarUsuario/", params={"nome": "Teste Listar", "email": "listar@example.com"})
+
+    # Lista usuário pelo email
+    response = client.get("/ListarUsuario/", params={"email": "listar@example.com"})
+
+    assert response.status_code == 200
+    assert response.json()["email"] == "listar@example.com"
+    assert response.json()["nome"] == "Teste Listar"
+
+def test_atualizar_usuario():
+    # Adiciona usuário de teste
+    client.post("/AdicionarUsuario/", params={"nome": "Antigo Nome", "email": "atualizar@example.com"})
+
+    # Atualiza nome do usuário
+    response = client.put("/AtualizarUsuario/", params={"email": "atualizar@example.com", "novo_nome": "Nome Atualizado"})
+
+    assert response.status_code == 200
+    assert response.json()["nome"] == "Nome Atualizado"
