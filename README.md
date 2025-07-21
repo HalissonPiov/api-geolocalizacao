@@ -6,7 +6,7 @@ Este projeto é uma API REST para gerenciamento de usuários e pontos geográfic
 
 ## 📌 Contexto da Aplicação
 
-A ideia surgiu da necessidade de uma aplicação backend simples e eficiente para registrar **pontos geográficos** relacionados a usuários. Esse tipo de sistema pode ser utilizado em:
+Aplicação backend simples e eficiente para registrar **pontos geográficos** relacionados a usuários. Esse tipo de sistema pode ser utilizado em:
 
 - Aplicativos de turismo, para marcar locais visitados;
 - Plataformas de mobilidade urbana;
